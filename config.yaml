@@ -1,0 +1,41 @@
+# RoboMMM-TCN v1.0 — Configuration
+# Copyright (c) 2026 Roman Muravyev
+# Licensed under AGPLv3. Commercial use: roman.muravev@gmail.com
+
+# ── Database ──
+database:
+  driver: "ODBC Driver 18 for SQL Server"
+  server: "localhost"
+  database: "RoboMMM"
+  trusted_connection: true
+
+# ── TCN Model ──
+model:
+  num_channels: [32, 64, 128]
+  kernel_size: 2
+  dropout: 0.2
+  tweedie_p: 1.5
+  log_link: true
+
+# ── Monotonic Loss ──
+monotonic:
+  lambda_init: 10.0
+  annealing_rate: 1.05
+  mono_indices: [0, 1, 2]
+
+# ── Bayesian Optimization ──
+optimization:
+  bounds: [0.0, 1.0]
+  noise_var: 1.0e-5
+  kernel_sigma_f: 1.0
+  kernel_length_scale: 0.5
+  hill_alpha: 2.5
+  hill_k: 0.5
+
+# ── ZBB Coordinator ──
+zbb:
+  total_budget: 100000000
+  roi_barrier: 1.20
+  lambda_init: 1.0
+  alpha_init: 0.5
+  max_iterations: 12
