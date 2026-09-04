@@ -71,8 +71,8 @@ class TemporalAdstockSHAPExplainer:
             for S in coalitions:
                 S_with_i = S + [i]
                 weight = (
-                    math.factorial(len(S)) * 
-                    math.factorial(num_features - len(S) - 1) / 
+                    math.factorial(len(S)) *
+                    math.factorial(num_features - len(S) - 1) /
                     math.factorial(num_features)
                 )
 
