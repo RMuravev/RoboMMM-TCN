@@ -17,7 +17,7 @@ import math
 import numpy as np
 from scipy.optimize import minimize
 
-from .surrogate import GPRegressor
+# from .surrogate import GPRegressor
 
 
 class ExpectedImprovement:
