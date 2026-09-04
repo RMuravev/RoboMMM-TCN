@@ -15,11 +15,12 @@ Run with: python -m pytest tests/test_robommm.py -v
 import unittest
 import torch
 import torch.nn as nn
-import numpy as np
+# import numpy as np
 
 from src.losses import StableTweedieLoss, AdaptiveMonotonicLoss
 from src.models import TemporalConvolutionalNetwork
-from src.interpretability import CausalDAG, TemporalAdstockSHAPExplainer
+from src.interpretability import CausalDAG
+# from src.interpretability import TemporalAdstockSHAPExplainer
 from src.surrogate import MaternHillKernel, GPRegressor
 from src.optimization import BayesianOptimizer, ZBBBudgetCoordinator
 
