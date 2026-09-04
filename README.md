@@ -2,35 +2,95 @@
 
 **Software Complex for Robust Optimization and Factor Analysis of Hierarchical Marketing Budgets Based on Deep Learning with Monotonic Constraints**
 
+## Overview
+
 Industrial-grade Python/PyTorch library for causal inference, monotonic deep learning, Temporal-Adstock SHAP explanations, and Bayesian surrogate budget optimization under ZBB (Zero-Based Budgeting) constraints.
 
-## Features
+## Installation
 
-- **StableTweedieLoss** — numerically stable Tweedie deviance in log-space for compound Poisson-Gamma distributions
-- **AdaptiveMonotonicLoss** — Lagrangian penalty enforcing monotonicity in Sobolev spaces with exponential annealing
-- **TemporalConvolutionalNetwork** — causal dilated TCN with weight normalization, GELU, and spatial dropout
-- **TemporalAdstockSHAPExplainer** — causal-constrained Shapley values with Markov blanket DAG restrictions
-- **MaternHillKernel** — custom Matern 3/2 Gaussian Process kernel with Hill-saturation distance metrics
-- **ZBBBudgetCoordinator** — subgradient dual decomposition for hierarchical budget allocation under ROI barriers
+### Prerequisites
 
-## Quick Start
+* **Python 3.12+**
+* **CUDA 12.1+** (optional for GPU acceleration)
+* **MS SQL Server 2019+** (optional for production data source)
 
-### Requirements
-
-- Python 3.12+
-- PyTorch 2.14+
-- CUDA 12.1+ (for GPU acceleration, optional)
-- MS SQL Server 2019+ (for production data source, optional)
-
-### Installation
+### Installation Steps
 
 ```bash
 git clone https://github.com/yourusername/RoboMMM-TCN.git
 cd RoboMMM-TCN
-python3 -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
+```
 
+## Quick Start
+### Running the Pipeline
+```bash
+python run_pipeline.py --brand CardioRx --limit 100000000 --roi_barrier 1.20
+```
+### Running Tests
+```bash
+python -m pytest tests/test_robommm.py -v
+```
+
+## Project Structure
+```text
+RoboMMM-TCN/
+├── src/
+│   ├── __init__.py
+│   ├── losses.py
+│   ├── models.py
+│   ├── interpretability.py
+│   ├── surrogate.py
+│   └── optimization.py
+├── tests/
+│   ├── __init__.py
+│   └── test_robommm.py
+├── run_pipeline.py
+├── config.yaml
+├── requirements.txt
+├── .gitignore
+├── README.md
+├── LICENSE
+├── LICENSE-AGPLv3.txt
+└── COMMERCIAL_LICENSE.md
+```
+
+## Key Features
+### Core Functionalities
+* **StableTweedieLoss** — numerically stable Tweedie deviance in log-space
+* **AdaptiveMonotonicLoss** — Lagrangian penalty for monotonicity
+* **Temporal Convolutional Network (TCN)** — causal dilated convolutions
+* **Temporal-Adstock SHAP** — causal-constrained explanations
+* **Bayesian Optimization** — with Matern-Hill kernel
+* **ZBB Budget Coordinator** — hierarchical budget allocation
+
+## Usage Examples
+### Basic Usage
+```python
+from src.models import TemporalConvolutionalNetwork
+from src.losses import StableTweedieLoss
+
+# Initialize model
+model = TemporalConvolutionalNetwork(num_inputs=2, num_channels=[4, 8])
+
+# Initialize loss
+loss_fn = StableTweedieLoss(p=1.5, log_link=True)
+
+# Training loop
+for epoch in range(epochs):
+    # Forward pass
+    predictions = model(inputs)
+    
+    # Compute loss
+    loss = loss_fn(predictions, targets)
+    
+    # Backward pass
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+```
 
 ## License
 
