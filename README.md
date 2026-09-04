@@ -18,7 +18,7 @@ Industrial-grade Python/PyTorch library for causal inference, monotonic deep lea
 ### Requirements
 
 - Python 3.12+
-- PyTorch 2.2+
+- PyTorch 2.14+
 - CUDA 12.1+ (for GPU acceleration, optional)
 - MS SQL Server 2019+ (for production data source, optional)
 
