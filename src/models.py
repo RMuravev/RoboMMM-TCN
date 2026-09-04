@@ -44,14 +44,14 @@ class TemporalBlock(nn.Module):
     """
     def __init__(self, n_inputs, n_outputs, kernel_size, stride, dilation, dropout):
         super().__init__()
-        self.conv1 = nn.utils.weight_norm(
+        self.conv1 = nn.utils.parametrizations.weight_norm(
             CausalDilatedConv1D(n_inputs, n_outputs, kernel_size, dilation=dilation).conv
         )
         self.padding1 = (kernel_size - 1) * dilation
         self.act1 = nn.GELU()
         self.drop1 = nn.Dropout(dropout)
 
-        self.conv2 = nn.utils.weight_norm(
+        self.conv2 = nn.utils.parametrizations.weight_norm(
             CausalDilatedConv1D(n_outputs, n_outputs, kernel_size, dilation=dilation).conv
         )
         self.padding2 = (kernel_size - 1) * dilation
