@@ -1,0 +1,35 @@
+cff-version: "1.2.0"
+message: "If you use this software, please cite it as below."
+type: software
+
+title: "RoboMMM-TCN: Software Complex for Robust Optimization and Factor Analysis of Hierarchical Marketing Budgets"
+
+authors:
+  - family-names: Muravev
+    given-names: Roman
+    orcid: "https://orcid.org/0009-0007-3122-3492"
+    email: roman.muravev@gmail.com
+
+version: "1.0.0"
+
+date-released: "2026-09-04"
+
+abstract: "Industrial-grade Python/PyTorch library for causal inference, monotonic deep learning, Temporal-Adstock SHAP explanations, and Bayesian surrogate budget optimization under ZBB constraints."
+
+license: AGPL-3.0
+
+repository: "https://github.com/RMuravev/RoboMMM-TCN"
+
+keywords:
+  - Marketing Mix Modeling
+  - Deep Learning
+  - Causal Inference
+  - SHAP
+  - Bayesian Optimization
+  - ZBB
+  - TCN
+
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22300303"  # Добавьте реальный DOI после публикации в Zenodo
+
